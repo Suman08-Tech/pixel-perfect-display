@@ -121,7 +121,7 @@ export function timeline(d: District): TimelinePoint[] {
   }
   const cross = pts.findIndex((p) => p.score >= 75);
   if (cross >= 0) { pts[cross].alert = true; pts[cross].note = "Threshold crossed — warning issued"; }
-  pts[Math.max(0, 13 - 6)].note = pts[Math.max(0, 13 - 6)].note ?? "Rainfall spike detected";
+  pts[7]!.note = pts[7]!.note ?? "Rainfall spike detected";
   return pts;
 }
 

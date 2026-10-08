@@ -26,7 +26,7 @@ function Dashboard() {
   const [sort, setSort] = useState<SortKey>("overall");
   const d = getDistrict(sel)!;
   const ranked = useMemo(() => [...districts].sort((a, b) => (sort === "confidence" ? b.confidence - a.confidence : b.scores[sort] - a.scores[sort])), [sort]);
-  const hotspots = useMemo(() => districts.map((x) => { const t = timeline(x); return { x, rise: t[13].score - t[6].score }; }).sort((a, b) => b.rise - a.rise).slice(0, 5), []);
+  const hotspots = useMemo(() => districts.map((x) => { const t = timeline(x); return { x, rise: t[13]!.score - t[6]!.score }; }).sort((a, b) => b.rise - a.rise).slice(0, 5), []);
   const avg = (k: Layer) => Math.round(districts.reduce((s, x) => s + x.scores[k], 0) / districts.length);
   const high = districts.filter((x) => x.scores.overall >= 55).length;
   const kpis = [
