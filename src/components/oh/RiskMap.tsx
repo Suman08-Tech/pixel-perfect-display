@@ -8,8 +8,8 @@ export default function RiskMap({ layer, selected, onSelect, height = "100%", id
 }) {
   const list = ids ? districts.filter((d) => ids.includes(d.id)) : districts;
   return (
-    <MapContainer center={[22.5, 81]} zoom={5} minZoom={4} style={{ height, width: "100%" }} scrollWheelZoom>
-      <TileLayer attribution='&copy; OpenStreetMap &copy; CARTO' url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
+    <MapContainer zoomControl={false} center={[22.5, 81]} zoom={5} minZoom={4} style={{ height, width: "100%" }} scrollWheelZoom>
+      <TileLayer attribution="&copy; OpenStreetMap contributors" url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {list.map((d) => {
         const s = d.scores[layer];
         const c = levelVar[level(s)];
