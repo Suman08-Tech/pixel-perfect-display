@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, CircleMarker, Tooltip } from "react-leaflet";
+import { MapContainer, TileLayer, CircleMarker, Tooltip, ZoomControl } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { districts, level, type Layer } from "@/data/districts";
 import { levelVar } from "./ui";
@@ -9,6 +9,7 @@ export default function RiskMap({ layer, selected, onSelect, height = "100%", id
   const list = ids ? districts.filter((d) => ids.includes(d.id)) : districts;
   return (
     <MapContainer zoomControl={false} center={[22.5, 81]} zoom={5} minZoom={4} style={{ height, width: "100%" }} scrollWheelZoom>
+      <ZoomControl position="bottomright" />
       <TileLayer attribution="&copy; OpenStreetMap contributors" url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {list.map((d) => {
         const s = d.scores[layer];
