@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- All app data is synthetic mock data in src/data/districts.ts; no backend yet (v1 is a frontend prototype).
+- Leaflet map is lazy-loaded behind ClientOnly (src/components/oh/LazyMap.tsx) because Leaflet breaks SSR.
