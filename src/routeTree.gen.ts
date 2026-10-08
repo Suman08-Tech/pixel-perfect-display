@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as MapRouteImport } from './routes/map'
+import { Route as MethodologyRouteImport } from './routes/methodology'
+import { Route as WarningsRouteImport } from './routes/warnings'
+import { Route as DistrictIdRouteImport } from './routes/district.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapRoute = MapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MethodologyRoute = MethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WarningsRoute = WarningsRouteImport.update({
+  id: '/warnings',
+  path: '/warnings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DistrictIdRoute = DistrictIdRouteImport.update({
+  id: '/district/$id',
+  path: '/district/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/dashboard': typeof DashboardRoute
+  '/map': typeof MapRoute
+  '/methodology': typeof MethodologyRoute
+  '/warnings': typeof WarningsRoute
+  '/district/$id': typeof DistrictIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/dashboard': typeof DashboardRoute
+  '/map': typeof MapRoute
+  '/methodology': typeof MethodologyRoute
+  '/warnings': typeof WarningsRoute
+  '/district/$id': typeof DistrictIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/dashboard': typeof DashboardRoute
+  '/map': typeof MapRoute
+  '/methodology': typeof MethodologyRoute
+  '/warnings': typeof WarningsRoute
+  '/district/$id': typeof DistrictIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/dashboard'
+    | '/map'
+    | '/methodology'
+    | '/warnings'
+    | '/district/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/dashboard'
+    | '/map'
+    | '/methodology'
+    | '/warnings'
+    | '/district/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/dashboard'
+    | '/map'
+    | '/methodology'
+    | '/warnings'
+    | '/district/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  DashboardRoute: typeof DashboardRoute
+  MapRoute: typeof MapRoute
+  MethodologyRoute: typeof MethodologyRoute
+  WarningsRoute: typeof WarningsRoute
+  DistrictIdRoute: typeof DistrictIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/map': {
+      id: '/map'
+      path: '/map'
+      fullPath: '/map'
+      preLoaderRoute: typeof MapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/methodology': {
+      id: '/methodology'
+      path: '/methodology'
+      fullPath: '/methodology'
+      preLoaderRoute: typeof MethodologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/warnings': {
+      id: '/warnings'
+      path: '/warnings'
+      fullPath: '/warnings'
+      preLoaderRoute: typeof WarningsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/district/$id': {
+      id: '/district/$id'
+      path: '/district/$id'
+      fullPath: '/district/$id'
+      preLoaderRoute: typeof DistrictIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  DashboardRoute: DashboardRoute,
+  MapRoute: MapRoute,
+  MethodologyRoute: MethodologyRoute,
+  WarningsRoute: WarningsRoute,
+  DistrictIdRoute: DistrictIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
