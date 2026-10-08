@@ -120,7 +120,8 @@ export function timeline(d: District): TimelinePoint[] {
     pts.push({ day: date.toLocaleDateString("en-IN", { day: "2-digit", month: "short" }), score: i === 13 ? d.scores.overall : score });
   }
   const cross = pts.findIndex((p) => p.score >= 75);
-  if (cross >= 0) { pts[cross].alert = true; pts[cross].note = "Threshold crossed — warning issued"; }
+  const cp = pts[cross];
+  if (cp) { cp.alert = true; cp.note = "Threshold crossed — warning issued"; }
   pts[7]!.note = pts[7]!.note ?? "Rainfall spike detected";
   return pts;
 }
