@@ -5,6 +5,7 @@ import { ArrowUpDown, TrendingUp } from "lucide-react";
 import { alertHistory, districts, getDistrict, level, timeline, warnings, type Layer } from "@/data/districts";
 import { LazyMap } from "@/components/oh/LazyMap";
 import { RiskBrief } from "@/components/oh/RiskBrief";
+import { DbRecords } from "@/components/oh/DbRecords";
 import { Card, LevelBadge, PageHeader, scoreColor, SyntheticTag } from "@/components/oh/ui";
 
 export const Route = createFileRoute("/dashboard")({
