@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 export const dbDistrictsQuery = () =>
   queryOptions({
+    retry: 1,
     queryKey: ["db", "districts"],
     queryFn: async () => {
       const { data, error } = await supabase.from("districts").select("id,name,state,latitude,longitude").order("name");
@@ -14,6 +15,7 @@ export const dbDistrictsQuery = () =>
 
 export const dbObservationsQuery = (districtId?: string) =>
   queryOptions({
+    retry: 1,
     queryKey: ["db", "observations", districtId ?? "all"],
     queryFn: async () => {
       let q = supabase.from("environmental_observations").select("*").order("observed_at", { ascending: false }).limit(50);
@@ -26,6 +28,7 @@ export const dbObservationsQuery = (districtId?: string) =>
 
 export const dbAssessmentsQuery = (districtId?: string) =>
   queryOptions({
+    retry: 1,
     queryKey: ["db", "assessments", districtId ?? "all"],
     queryFn: async () => {
       let q = supabase.from("risk_assessments").select("*").order("calculated_at", { ascending: false }).limit(50);

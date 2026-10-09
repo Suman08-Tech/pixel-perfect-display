@@ -1,0 +1,2 @@
+GRANT SELECT ON public.districts, public.environmental_observations, public.risk_assessments TO anon, authenticated;
+GRANT ALL ON public.districts, public.environmental_observations, public.risk_assessments TO service_role;
