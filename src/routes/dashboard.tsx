@@ -5,6 +5,7 @@ import { ArrowUpDown, TrendingUp } from "lucide-react";
 import { alertHistory, districts, getDistrict, level, timeline, warnings, type Layer } from "@/data/districts";
 import { LazyMap } from "@/components/oh/LazyMap";
 import { RiskBrief } from "@/components/oh/RiskBrief";
+import { DbRecords } from "@/components/oh/DbRecords";
 import { Card, LevelBadge, PageHeader, scoreColor, SyntheticTag } from "@/components/oh/ui";
 
 export const Route = createFileRoute("/dashboard")({
@@ -50,6 +51,9 @@ function Dashboard() {
         <Card className="overflow-hidden p-0"><div className="h-[480px]"><LazyMap layer="overall" selected={sel} onSelect={setSel} height="480px" /></div></Card>
         <RiskBrief d={d} compact />
       </div>
+
+      <div className="mt-6"><DbRecords /></div>
+
 
       <div className="mt-6 grid gap-6 lg:grid-cols-3">
         <Card title="Risk ranking" className="lg:col-span-2">

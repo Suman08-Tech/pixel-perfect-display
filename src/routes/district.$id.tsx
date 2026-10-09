@@ -3,6 +3,7 @@ import { Area, AreaChart, CartesianGrid, Line, LineChart, ReferenceDot, Referenc
 import { CalendarDays, CloudRain, Droplets, Satellite, Thermometer, Users } from "lucide-react";
 import { districts, getDistrict, history, timeline, type District } from "@/data/districts";
 import { RiskBrief } from "@/components/oh/RiskBrief";
+import { DbRecords } from "@/components/oh/DbRecords";
 import { Card, PageHeader } from "@/components/oh/ui";
 
 export const Route = createFileRoute("/district/$id")({
@@ -37,6 +38,7 @@ function DistrictPage() {
         right={<select value={id} onChange={(e) => nav({ to: "/district/$id", params: { id: e.target.value } })} className="rounded-lg border bg-card px-3 py-2 text-sm">
           {districts.map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}</select>} />
       <RiskBrief d={d} />
+      <div className="mt-6"><DbRecords districtId={id} /></div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-3">
         <Card title="Risk timeline — last 14 days" className="lg:col-span-2" action={<span className="text-xs text-muted-foreground">Warning threshold 75</span>}>
