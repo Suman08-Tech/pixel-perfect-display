@@ -3,7 +3,7 @@ import { Database } from "lucide-react";
 import { Card } from "@/components/oh/ui";
 import { dbAssessmentsQuery, dbDistrictsQuery, dbObservationsQuery } from "@/lib/onehealth-db";
 
-function State({ q, empty, children }: { q: { isPending: boolean; isError: boolean; error: unknown; data?: unknown[] }; empty: string; children: React.ReactNode }) {
+function State({ q, empty, children }: { q: { isPending: boolean; isError: boolean; error: unknown; data?: unknown[] | undefined }; empty: string; children: React.ReactNode }) {
   if (q.isPending) return <p className="text-sm text-muted-foreground">Loading…</p>;
   if (q.isError) return <p className="text-sm text-risk-critical">Couldn't load: {(q.error as Error)?.message ?? "unknown error"}</p>;
   if (!q.data?.length) return <p className="text-sm text-muted-foreground">{empty}</p>;
