@@ -52,6 +52,9 @@ function Dashboard() {
         <RiskBrief d={d} compact />
       </div>
 
+      <div className="mt-6"><DbRecords /></div>
+
+
       <div className="mt-6 grid gap-6 lg:grid-cols-3">
         <Card title="Risk ranking" className="lg:col-span-2">
           <div className="overflow-x-auto">
